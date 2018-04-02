@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
   <color name="colorPrimary">@android:color/holo_blue_dark</color>
   <color name="colorPrimaryDark">@android:color/holo_blue_dark</color>
   <color name="colorAccent">@android:color/holo_blue_dark</color>
+
+  <color name="title">#ffffff</color>
+  <color name="subtitle">#555555</color>
 </resources>

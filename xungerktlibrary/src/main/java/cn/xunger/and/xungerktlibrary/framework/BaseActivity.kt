@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.common_toolbar.*
 import java.lang.ref.WeakReference
 
 /**
@@ -30,10 +31,39 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private fun init() {
         if (handleIntent(intent)) {
+            initToolbar()
             initView()
             initData()
         } else {
             finish()
+        }
+    }
+
+    private fun initToolbar() {
+        if (tb_toolbar != null) {
+            setSupportActionBar(tb_toolbar)
+            supportActionBar!!.setDisplayShowTitleEnabled(false)
+            if (isShowNavigationIcon()) {
+                supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+                tb_toolbar.setNavigationOnClickListener {
+                    onNavigationIconClicked()
+                }
+            }
+        }
+    }
+
+    protected open fun onNavigationIconClicked() {
+        onBackPressed()
+    }
+
+    protected open fun isShowNavigationIcon(): Boolean {
+        return true
+    }
+
+    override fun onTitleChanged(title: CharSequence?, color: Int) {
+        super.onTitleChanged(title, color)
+        if (tv_toolbar_title != null) {
+            tv_toolbar_title.text = title
         }
     }
 
@@ -45,11 +75,23 @@ abstract class BaseActivity : AppCompatActivity() {
         return true
     }
 
-    fun getContext(): Context {
+    protected fun getContext(): Context {
         return this
     }
 
-    fun handleMessage(msg: Message?) {
+    protected fun getHandler(): Handler {
+        return innerHandler
+    }
+
+    protected fun sendEmptyMessage(what: Int) {
+        innerHandler.sendEmptyMessage(what)
+    }
+
+    protected fun sendEmptyMessageDelayed(what: Int, delayMillis: Long) {
+        innerHandler.sendEmptyMessageDelayed(what, delayMillis)
+    }
+
+    protected open fun handleMessage(msg: Message?) {
 
     }
 

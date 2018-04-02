@@ -22,6 +22,12 @@ inline fun <reified T : Activity> Activity.startNewActivity() {
     startActivity(intent)
 }
 
+inline fun <reified T : Activity> Activity.startNewActivityAndFinish() {
+    val intent = Intent(this, T::class.java)
+    startActivity(intent)
+    finish()
+}
+
 inline fun <reified T : Activity> Fragment.startNewActivity() {
     val intent = Intent(context, T::class.java)
     startActivity(intent)

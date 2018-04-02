@@ -8,4 +8,12 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
+  <style name="ToolbarStyle" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorControlNormal">#ffffff</item>
+    <item name="actionMenuTextColor">#ffffff</item>
+    <item name="android:textColorPrimary">#ffffff</item>
+    <item name="android:textColorSecondary">#ffffff</item>
+    <item name="android:actionBarSize">45dp</item>
+  </style>
+
 </resources>
