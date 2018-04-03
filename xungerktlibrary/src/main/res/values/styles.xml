@@ -8,12 +8,19 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
-  <style name="ToolbarStyle" parent="Theme.AppCompat.Light.NoActionBar">
+  <style name="ToolbarStyle" parent="Base.Widget.AppCompat.Toolbar">
     <item name="colorControlNormal">#ffffff</item>
     <item name="actionMenuTextColor">#ffffff</item>
     <item name="android:textColorPrimary">#ffffff</item>
     <item name="android:textColorSecondary">#ffffff</item>
-    <item name="android:actionBarSize">45dp</item>
+    <item name="android:gravity">center_vertical</item>
+    <item name="android:background">@color/colorPrimary</item>
+  </style>
+
+  <style name="divider">
+    <item name="android:layout_height">1px</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:background">#dddddd</item>
   </style>
 
 </resources>
