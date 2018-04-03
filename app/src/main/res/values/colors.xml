@@ -3,4 +3,9 @@
   <color name="colorPrimary">@android:color/holo_blue_dark</color>
   <color name="colorPrimaryDark">@android:color/holo_blue_dark</color>
   <color name="colorAccent">@android:color/holo_blue_dark</color>
+
+  <color name="windowBackground">#ffffff</color>
+
+  <color name="colorTitle">#333333</color>
+  <color name="colorSubTitle">#666666</color>
 </resources>

@@ -2,11 +2,96 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+  <LinearLayout
+      android:id="@+id/ll_login"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:background="#ffffff"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:paddingBottom="12dp"
+      android:paddingTop="12dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="登录/注册"
+        android:textColor="@color/colorTitle"
+        android:textSize="16sp" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:background="#ffffff"
+      android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_collection"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:text="我的收藏"
+          android:textColor="@color/colorTitle"
+          android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <View
+        style="@style/divider"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_about_us"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:text="关于我们"
+          android:textColor="@color/colorTitle"
+          android:textSize="15sp" />
+
+    </RelativeLayout>
+
+  </LinearLayout>
 
   <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="this is home" />
+      android:id="@+id/tv_logout"
+      android:layout_width="match_parent"
+      android:layout_height="45dp"
+      android:layout_marginTop="16dp"
+      android:background="#ffffff"
+      android:gravity="center"
+      android:text="退出登录"
+      android:textColor="@color/colorTitle"
+      android:textSize="15sp"
+      android:visibility="gone" />
 
 </LinearLayout>
