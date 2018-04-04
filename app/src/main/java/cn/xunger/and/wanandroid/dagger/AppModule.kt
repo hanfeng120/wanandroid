@@ -1,5 +1,7 @@
 package cn.xunger.and.wanandroid.dagger
 
+import android.app.Application
+import android.content.Context
 import cn.xunger.and.wanandroid.WanAndApplication
 import dagger.Module
 import dagger.Provides
@@ -12,7 +14,17 @@ import dagger.Provides
 class AppModule(val app: WanAndApplication) {
 
     @Provides
-    fun provideApplication(): WanAndApplication {
+    fun provideWanApplication(): WanAndApplication {
         return app
+    }
+
+    @Provides
+    fun provideApplication(): Application {
+        return app
+    }
+
+    @Provides
+    fun provideContext(): Context {
+        return app.applicationContext
     }
 }

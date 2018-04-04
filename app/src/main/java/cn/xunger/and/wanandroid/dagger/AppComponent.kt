@@ -1,6 +1,7 @@
 package cn.xunger.and.wanandroid.dagger
 
 import cn.xunger.and.wanandroid.framework.CommonActivity
+import cn.xunger.and.wanandroid.framework.CommonFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -9,9 +10,11 @@ import javax.inject.Singleton
  *
  */
 @Singleton
-@Component(modules = [(AppModule::class), (NetModule::class)])
+@Component(modules = [(AppModule::class), (NetModule::class), (GlobalModule::class)])
 interface AppComponent {
 
     fun inject(commonActivity: CommonActivity)
+
+    fun inject(commonFragment: CommonFragment)
 
 }

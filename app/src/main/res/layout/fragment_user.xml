@@ -1,10 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eeeeee"
     android:orientation="vertical">
+
+  <RelativeLayout
+      android:id="@+id/rl_user_info"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:background="#ffffff"
+      android:orientation="vertical"
+      android:paddingBottom="18dp"
+      android:paddingLeft="12dp"
+      android:paddingRight="12dp"
+      android:paddingTop="18dp"
+      android:visibility="gone"
+      tools:visibility="visible">
+
+    <ImageView
+        android:id="@+id/portrait"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@id/portrait"
+        android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/tv_user_name"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/colorTitle"
+          android:textSize="16sp"
+          tools:text="樱桃小丸子" />
+
+      <TextView
+          android:id="@+id/tv_slogan"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:textColor="@color/colorSubTitle"
+          android:textSize="14sp"
+          tools:text="stay hungry, stay foolish" />
+
+    </LinearLayout>
+
+  </RelativeLayout>
 
   <LinearLayout
       android:id="@+id/ll_login"
@@ -43,6 +93,7 @@
         android:id="@+id/rl_collection"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:background="@drawable/item_default_bg"
         android:orientation="vertical"
         android:paddingLeft="12dp"
         android:paddingRight="12dp">
@@ -66,6 +117,7 @@
         android:id="@+id/rl_about_us"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:background="@drawable/item_default_bg"
         android:orientation="vertical"
         android:paddingLeft="12dp"
         android:paddingRight="12dp">
@@ -87,11 +139,12 @@
       android:layout_width="match_parent"
       android:layout_height="45dp"
       android:layout_marginTop="16dp"
-      android:background="#ffffff"
+      android:background="@drawable/item_default_bg"
       android:gravity="center"
       android:text="退出登录"
       android:textColor="@color/colorTitle"
       android:textSize="15sp"
-      android:visibility="gone" />
+      android:visibility="gone"
+      tools:visibility="visible" />
 
 </LinearLayout>

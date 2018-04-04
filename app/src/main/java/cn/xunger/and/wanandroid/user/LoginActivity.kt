@@ -6,8 +6,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import cn.xunger.and.wanandroid.R
+import cn.xunger.and.wanandroid.common.Constants
 import cn.xunger.and.wanandroid.framework.CommonActivity
 import cn.xunger.and.wanandroid.module.LoginResponse
+import cn.xunger.and.wanandroid.utils.SharedPreferencesUtils
 import cn.xunger.and.xungerktlibrary.framework.SpaceFilter
 import cn.xunger.and.xungerktlibrary.net.DefaultObserver
 import cn.xunger.and.xungerktlibrary.utils.startNewActivity
@@ -21,6 +23,7 @@ class LoginActivity : CommonActivity() {
     }
 
     override fun initView() {
+        et_user_name.setText(userGlobal.userName)
         et_user_name.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
@@ -68,10 +71,15 @@ class LoginActivity : CommonActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : DefaultObserver<LoginResponse>() {
                     override fun onSuccess(result: LoginResponse) {
+                        userGlobal.userId = result.data.id
+                        userGlobal.userName = result.data.username
+                        SharedPreferencesUtils.saveString(getContext(), Constants.KEY_USER_NAME, result.data.username)
                         Toast.makeText(getContext(), "登录成功", Toast.LENGTH_SHORT).show()
+                        finish()
                     }
 
                     override fun onError(e: Throwable?, result: LoginResponse) {
+                        et_password.text = null
                         Toast.makeText(getContext(), result.errorMsg, Toast.LENGTH_SHORT).show()
                     }
 
