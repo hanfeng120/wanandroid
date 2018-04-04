@@ -7,6 +7,14 @@
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
     <item name="android:windowBackground">@color/windowBackground</item>
+    <item name="android:colorButtonNormal">@color/colorButtonNormal</item>
+    <item name="android:buttonStyle">@style/BananaButtonPrimary</item>
+  </style>
+
+  <style name="BananaButtonPrimary" parent="Widget.AppCompat.Button">
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:background">@drawable/btn_default_material</item>
   </style>
 
 </resources>

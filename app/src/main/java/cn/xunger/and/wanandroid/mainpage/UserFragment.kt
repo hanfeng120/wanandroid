@@ -9,6 +9,8 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import cn.xunger.and.wanandroid.R
 import cn.xunger.and.wanandroid.framework.CommonFragment
+import cn.xunger.and.wanandroid.user.LoginActivity
+import cn.xunger.and.xungerktlibrary.utils.startNewActivity
 
 /**
  * Created on 2018/4/3.
@@ -33,7 +35,7 @@ class UserFragment : CommonFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         llLogin.setOnClickListener {
-
+            startNewActivity<LoginActivity>()
         }
         rlCollection.setOnClickListener {
 

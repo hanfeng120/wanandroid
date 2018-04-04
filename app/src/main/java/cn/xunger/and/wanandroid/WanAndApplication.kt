@@ -1,5 +1,6 @@
 package cn.xunger.and.wanandroid
 
+import cn.xunger.and.wanandroid.dagger.AppComponent
 import cn.xunger.and.wanandroid.dagger.AppModule
 import cn.xunger.and.wanandroid.dagger.DaggerAppComponent
 import cn.xunger.and.xungerktlibrary.BaseApplication
@@ -10,9 +11,13 @@ import cn.xunger.and.xungerktlibrary.BaseApplication
  */
 class WanAndApplication : BaseApplication() {
 
+    companion object {
+        lateinit var appComponent: AppComponent
+    }
+
     override fun onCreate() {
         super.onCreate()
-        DaggerAppComponent.builder().appModule(AppModule(this)).build()
+        appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
     }
 
 }

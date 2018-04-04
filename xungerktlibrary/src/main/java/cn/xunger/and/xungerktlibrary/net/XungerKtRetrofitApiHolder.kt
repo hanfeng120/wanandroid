@@ -1,12 +1,14 @@
 package cn.xunger.and.xungerktlibrary.net
 
+import okhttp3.CookieJar
 import okhttp3.OkHttpClient
 
 /**
  * Created on 2018/1/23.
  *
  */
-class XungerKtRetrofitApiHolder<T>(private val hostUrl: String, private val apiClass: Class<T>) : IRetrofitApiHolder<T> {
+class XungerKtRetrofitApiHolder<T>(private val hostUrl: String, private val apiClass: Class<T>,
+                                   private val cookieJar: CookieJar) : IRetrofitApiHolder<T> {
 
     private val iApiHelper: T? = null
 
@@ -24,6 +26,6 @@ class XungerKtRetrofitApiHolder<T>(private val hostUrl: String, private val apiC
     }
 
     private fun generateOkHttpClient(): OkHttpClient {
-        return DefaultOkHttpClient.instance.getClientBuilder().build()
+        return DefaultOkHttpClient.instance.getClientBuilder().cookieJar(cookieJar).build()
     }
 }

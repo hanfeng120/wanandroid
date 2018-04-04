@@ -8,4 +8,6 @@
 
   <color name="colorTitle">#333333</color>
   <color name="colorSubTitle">#666666</color>
+  <color name="white">#ffffff</color>
+  <color name="colorButtonNormal">#61d270</color>
 </resources>

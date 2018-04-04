@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.support.v7.app.AppCompatActivity
+import android.view.inputmethod.InputMethodManager
 import kotlinx.android.synthetic.main.common_toolbar.*
 import java.lang.ref.WeakReference
 
@@ -70,6 +71,14 @@ abstract class BaseActivity : AppCompatActivity() {
     abstract fun initView()
 
     abstract fun initData()
+
+    protected fun hideSoftInput() {
+        if (this.currentFocus != null && this.currentFocus!!.windowToken != null) {
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(this.currentFocus!!.windowToken,
+                    InputMethodManager.HIDE_NOT_ALWAYS)
+        }
+    }
 
     open fun handleIntent(intent: Intent): Boolean {
         return true

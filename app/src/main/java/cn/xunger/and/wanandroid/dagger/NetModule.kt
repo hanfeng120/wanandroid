@@ -1,6 +1,8 @@
 package cn.xunger.and.wanandroid.dagger
 
+import cn.xunger.and.wanandroid.WanAndApplication
 import cn.xunger.and.wanandroid.network.IApiRoutes
+import cn.xunger.and.wanandroid.network.WanCookieJar
 import cn.xunger.and.xungerktlibrary.net.XungerKtRetrofitApiHolder
 import dagger.Module
 import dagger.Provides
@@ -15,7 +17,8 @@ class NetModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitHelper(): XungerKtRetrofitApiHolder<IApiRoutes> {
-        return XungerKtRetrofitApiHolder("", IApiRoutes::class.java)
+    fun provideRetrofitHelper(application: WanAndApplication): XungerKtRetrofitApiHolder<IApiRoutes> {
+        return XungerKtRetrofitApiHolder("http://www.wanandroid.com/", IApiRoutes::class.java,
+                WanCookieJar.getInstance(application))
     }
 }

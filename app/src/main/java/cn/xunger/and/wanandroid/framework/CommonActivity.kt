@@ -1,7 +1,7 @@
 package cn.xunger.and.wanandroid.framework
 
 import android.os.Bundle
-import cn.xunger.and.wanandroid.dagger.DaggerAppComponent
+import cn.xunger.and.wanandroid.WanAndApplication
 import cn.xunger.and.wanandroid.network.IApiRoutes
 import cn.xunger.and.xungerktlibrary.framework.BaseActivity
 import cn.xunger.and.xungerktlibrary.net.XungerKtRetrofitApiHolder
@@ -17,7 +17,7 @@ abstract class CommonActivity : BaseActivity() {
     lateinit var apiHelper: XungerKtRetrofitApiHolder<IApiRoutes>
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        DaggerAppComponent.builder().build().inject(this)
+        WanAndApplication.appComponent.inject(this)
         super.onCreate(savedInstanceState)
     }
 
