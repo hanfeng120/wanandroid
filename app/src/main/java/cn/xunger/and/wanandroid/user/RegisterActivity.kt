@@ -70,7 +70,7 @@ class RegisterActivity : CommonActivity() {
                         Log.d("Register", "onSuccess: ")
                     }
 
-                    override fun onError(e: Throwable?, result: RegisterResponse) {
+                    override fun onError(e: Throwable?, result: RegisterResponse?) {
                     }
 
                 })

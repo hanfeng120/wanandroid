@@ -12,7 +12,7 @@ class UserGlobal private constructor(val context: Application) {
 
     lateinit var userId: String
     lateinit var userName: String
-    lateinit var userToken: String
+    lateinit var userPassword: String
 
     companion object {
 
@@ -31,18 +31,23 @@ class UserGlobal private constructor(val context: Application) {
     }
 
     private fun initState() {
-        userToken = SharedPreferencesUtils.getString(context, Constants.KEY_USER_TOKEN, "")
         userName = SharedPreferencesUtils.getString(context, Constants.KEY_USER_NAME, "")
+        userPassword = SharedPreferencesUtils.getString(context, Constants.KEY_USER_PWD, "")
     }
 
-    fun saveUserToken(token: String) {
-        userToken = token
-        SharedPreferencesUtils.saveString(context, Constants.KEY_USER_TOKEN, token)
+    fun saveUserToken(password: String) {
+        this.userPassword = password
+        SharedPreferencesUtils.saveString(context, Constants.KEY_USER_PWD, password)
+    }
+
+    fun saveUserName(userName: String) {
+        this.userName = userName
+        SharedPreferencesUtils.saveString(context, Constants.KEY_USER_NAME, userName)
     }
 
     fun clearUserToken() {
-        userToken = ""
-        SharedPreferencesUtils.saveString(context, Constants.KEY_USER_TOKEN, "")
+        userPassword = ""
+        SharedPreferencesUtils.saveString(context, Constants.KEY_USER_PWD, "")
     }
 
 }

@@ -33,8 +33,10 @@ class WanCookieJar(var context: Application) : PersistentCookieJar(SetCookieCach
     override fun saveFromResponse(url: HttpUrl?, cookies: MutableList<Cookie>?) {
         if (cookies != null) {
             for (cookie in cookies.iterator()) {
-                if (cookie.name() == "JSESSIONID") {
+                if (cookie.name() == "loginUserPassword") {
                     UserGlobal.getUserGlobal(context).saveUserToken(cookie.value())
+                } else if (cookie.name() == "loginUserName") {
+                    UserGlobal.getUserGlobal(context).saveUserName(cookie.value())
                 }
             }
         }

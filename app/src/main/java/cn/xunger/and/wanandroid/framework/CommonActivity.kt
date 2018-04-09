@@ -32,7 +32,7 @@ abstract class CommonActivity : BaseActivity() {
     }
 
     protected fun isLoggedIn(): Boolean {
-        return userGlobal.userToken.isNotEmpty()
+        return userGlobal.userPassword.isNotEmpty()
     }
 
 }

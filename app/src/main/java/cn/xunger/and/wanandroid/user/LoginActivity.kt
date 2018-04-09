@@ -78,9 +78,9 @@ class LoginActivity : CommonActivity() {
                         finish()
                     }
 
-                    override fun onError(e: Throwable?, result: LoginResponse) {
+                    override fun onError(e: Throwable?, result: LoginResponse?) {
                         et_password.text = null
-                        Toast.makeText(getContext(), result.errorMsg, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(getContext(), result?.errorMsg, Toast.LENGTH_SHORT).show()
                     }
 
                 })

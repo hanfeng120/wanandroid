@@ -58,7 +58,7 @@ class UserFragment : CommonFragment() {
     }
 
     private fun refreshLoginStatus() {
-        if (userGlobal.userToken.isNotEmpty()) {
+        if (userGlobal.userPassword.isNotEmpty()) {
             refreshLoggedStatus()
         } else {
             refreshUnloginStatus()

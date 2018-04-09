@@ -6,7 +6,7 @@ package cn.xunger.and.wanandroid.common
  */
 class Constants {
     companion object {
-        const val KEY_USER_TOKEN: String = "UserToken"
+        const val KEY_USER_PWD: String = "UserToken"
         const val KEY_USER_NAME: String = "UserName"
     }
 }

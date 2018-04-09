@@ -24,6 +24,7 @@ abstract class DefaultObserver<T : IResponse> : Observer<Response<T>> {
     }
 
     final override fun onError(e: Throwable) {
+        onError(e, null)
     }
 
     override fun onComplete() {
@@ -31,6 +32,6 @@ abstract class DefaultObserver<T : IResponse> : Observer<Response<T>> {
 
     abstract fun onSuccess(result: T)
 
-    abstract fun onError(e: Throwable?, result: T)
+    abstract fun onError(e: Throwable?, result: T?)
 
 }

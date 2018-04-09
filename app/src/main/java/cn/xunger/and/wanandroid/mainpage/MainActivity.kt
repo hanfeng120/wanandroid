@@ -2,7 +2,10 @@ package cn.xunger.and.wanandroid.mainpage
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
+import android.view.View
+import android.view.ViewGroup
 import cn.xunger.and.wanandroid.R
 import cn.xunger.and.wanandroid.framework.CommonActivity
 import kotlinx.android.synthetic.main.activity_main.*
