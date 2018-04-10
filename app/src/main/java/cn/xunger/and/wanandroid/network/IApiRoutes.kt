@@ -1,6 +1,7 @@
 package cn.xunger.and.wanandroid.network
 
 import cn.xunger.and.wanandroid.module.HomeArticleResponse
+import cn.xunger.and.wanandroid.module.HomeBannerResponse
 import cn.xunger.and.wanandroid.module.LoginResponse
 import cn.xunger.and.wanandroid.module.RegisterResponse
 import io.reactivex.Observable
@@ -25,5 +26,8 @@ interface IApiRoutes {
 
     @GET("/article/list/{page}/json")
     fun loadHomePageList(@Path("page") page: String): Observable<Response<HomeArticleResponse>>
+
+    @GET("/banner/json")
+    fun loadHomeBannerData(): Observable<Response<HomeBannerResponse>>
 
 }
