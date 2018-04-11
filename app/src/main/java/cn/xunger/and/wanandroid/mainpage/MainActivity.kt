@@ -2,10 +2,7 @@ package cn.xunger.and.wanandroid.mainpage
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
-import android.view.View
-import android.view.ViewGroup
 import cn.xunger.and.wanandroid.R
 import cn.xunger.and.wanandroid.framework.CommonActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,7 +11,7 @@ class MainActivity : CommonActivity() {
 
     private lateinit var pagerAdapter: FragmentPagerAdapter
     private val homeFragment = HomeFragment()
-    private val knowledgeFragment = KnowledgeFragment()
+    private val knowledgeFragment = KnowledgeTreeFragment()
     private val userFragment = UserFragment()
     private val fragments = arrayOf(homeFragment, knowledgeFragment, userFragment)
     private val bottomMenuIds = arrayListOf(R.id.home, R.id.knowledge, R.id.user_center)

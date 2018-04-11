@@ -1,9 +1,6 @@
 package cn.xunger.and.wanandroid.network
 
-import cn.xunger.and.wanandroid.module.HomeArticleResponse
-import cn.xunger.and.wanandroid.module.HomeBannerResponse
-import cn.xunger.and.wanandroid.module.LoginResponse
-import cn.xunger.and.wanandroid.module.RegisterResponse
+import cn.xunger.and.wanandroid.module.*
 import io.reactivex.Observable
 import retrofit2.Response
 import retrofit2.http.*
@@ -30,4 +27,6 @@ interface IApiRoutes {
     @GET("/banner/json")
     fun loadHomeBannerData(): Observable<Response<HomeBannerResponse>>
 
+    @GET("/tree/json")
+    fun loadKnowledgeTreeData(): Observable<Response<KnowledgeTreeResponse>>
 }

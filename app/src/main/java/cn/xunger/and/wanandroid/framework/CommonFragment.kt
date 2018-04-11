@@ -36,7 +36,7 @@ open class CommonFragment : Fragment() {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         if (context is CommonActivity) {
-            hostActivity = context as CommonActivity
+            hostActivity = context
         }
     }
 

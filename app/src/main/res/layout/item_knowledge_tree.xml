@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="12dp">
+
+  <TextView
+      android:id="@+id/tv_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="@color/colorTitle"
+      android:textSize="16sp"
+      tools:text="开发环境" />
+
+  <TextView
+      android:id="@+id/tv_subtitle"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:lineSpacingMultiplier="1.1"
+      android:text="AndroidStudio  Gradle  官方发布"
+      android:textColor="@color/colorSubTitle"
+      android:textSize="13sp" />
+
+  <View
+      style="@style/divider"
+      android:layout_marginTop="8dp" />
+
+</LinearLayout>
