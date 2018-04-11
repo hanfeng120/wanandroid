@@ -8,7 +8,5 @@ class Constants {
     companion object {
         const val KEY_USER_PWD: String = "UserToken"
         const val KEY_USER_NAME: String = "UserName"
-
-        const val HOME_BANNER_SIZE_COEFFICIENT = 100
     }
 }

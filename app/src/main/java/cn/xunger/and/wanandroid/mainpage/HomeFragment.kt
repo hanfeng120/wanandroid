@@ -1,7 +1,6 @@
 package cn.xunger.and.wanandroid.mainpage
 
 import android.os.Bundle
-import android.os.Message
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -15,7 +14,6 @@ import cn.xunger.and.wanandroid.R
 import cn.xunger.and.wanandroid.`interface`.OnItemClickListener
 import cn.xunger.and.wanandroid.framework.CommonFragment
 import cn.xunger.and.wanandroid.mainpage.home.ArticleAdapter
-import cn.xunger.and.wanandroid.mainpage.home.BannerPagerAdapter
 import cn.xunger.and.wanandroid.module.HomeArticleResponse
 import cn.xunger.and.wanandroid.module.HomeBannerResponse
 import cn.xunger.and.wanandroid.module.Page
@@ -33,8 +31,6 @@ import view.banner.BannerAdapter
 class HomeFragment : CommonFragment() {
 
     private val TAG = "HomeFragment"
-    private val MSG_REFRESH_BANNER = 2000
-    private val BANNER_INTERVAL = 4000L
     private val page = Page()
     private lateinit var swipeRefresh: SwipeRefreshLayout
     private lateinit var banner: Banner<HomeBannerResponse.HomeBanner>
@@ -42,8 +38,6 @@ class HomeFragment : CommonFragment() {
     private lateinit var articleAdapter: ArticleAdapter
     private lateinit var articleResponse: HomeArticleResponse
     private lateinit var bannerResponse: HomeBannerResponse
-    private lateinit var bannerAdapter: BannerPagerAdapter
-    private var currentBannerPage = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_home, container, false)
@@ -91,7 +85,7 @@ class HomeFragment : CommonFragment() {
                     override fun onSuccess(result: HomeBannerResponse) {
                         bannerResponse = result
                         banner.setBannerData(result.data)
-//                        refreshBanner()
+                        banner.notifyDataSetChanged()
                     }
 
                     override fun onError(e: Throwable?, result: HomeBannerResponse?) {
@@ -109,8 +103,6 @@ class HomeFragment : CommonFragment() {
     }
 
     private fun initViewPager() {
-        bannerAdapter = BannerPagerAdapter(context!!)
-
         banner.bannerAdapter = object : BannerAdapter<HomeBannerResponse.HomeBanner>() {
             override fun bindImageView(imageView: ImageView, data: HomeBannerResponse.HomeBanner) {
                 ImageLoader.loadImage(context!!, imageView, data.imagePath)
@@ -138,18 +130,4 @@ class HomeFragment : CommonFragment() {
         articleAdapter.setData(articleResponse.data.datas)
     }
 
-    override fun handleMessage(msg: Message) {
-        currentBannerPage++
-//        viewPager.setCurrentItem(if (currentBannerPage >= bannerResponse.data.size * Constants.HOME_BANNER_SIZE_COEFFICIENT * 2) {
-//            currentBannerPage % bannerResponse.data.size + bannerResponse.data.size * Constants.HOME_BANNER_SIZE_COEFFICIENT
-//        } else {
-//            currentBannerPage
-//        }, true)
-        nextBannerItem()
-        super.handleMessage(msg)
-    }
-
-    private fun nextBannerItem() {
-        sendEmptyMessageDelayed(MSG_REFRESH_BANNER, BANNER_INTERVAL)
-    }
 }
