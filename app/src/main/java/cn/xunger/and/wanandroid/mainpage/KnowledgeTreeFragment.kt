@@ -5,7 +5,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import cn.xunger.and.wanandroid.R
+import cn.xunger.and.wanandroid.`interface`.OnItemClickListener
 import cn.xunger.and.wanandroid.framework.CommonFragment
 import cn.xunger.and.wanandroid.mainpage.knowledgetree.KnowledgeTreeAdapter
 import cn.xunger.and.wanandroid.module.KnowledgeTreeResponse
@@ -42,6 +44,12 @@ class KnowledgeTreeFragment : CommonFragment() {
         recycler_view.layoutManager = LinearLayoutManager(context)
         recycler_view.isNestedScrollingEnabled = false
         recycler_view.setHasFixedSize(false)
+        adapter.onItemClickListener = object : OnItemClickListener {
+            override fun onItemClick(position: Int, view: View) {
+                Toast.makeText(context, "${position}号位置被点击了", Toast.LENGTH_SHORT).show()
+            }
+
+        }
     }
 
     private fun initData() {

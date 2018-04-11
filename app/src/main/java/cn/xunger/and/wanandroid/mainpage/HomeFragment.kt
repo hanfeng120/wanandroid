@@ -115,6 +115,7 @@ class HomeFragment : CommonFragment() {
         articleAdapter = ArticleAdapter(context!!)
         recyclerView.adapter = articleAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.isFocusable = false
         recyclerView.isNestedScrollingEnabled = false
         recyclerView.setHasFixedSize(false)
 

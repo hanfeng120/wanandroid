@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/item_default_bg"
     android:orientation="vertical"
     android:paddingLeft="12dp"
     android:paddingRight="12dp"
@@ -24,9 +25,9 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:lineSpacingMultiplier="1.1"
-      android:text="AndroidStudio  Gradle  官方发布"
       android:textColor="@color/colorSubTitle"
-      android:textSize="13sp" />
+      android:textSize="13sp"
+      tools:text="AndroidStudio  Gradle  官方发布" />
 
   <View
       style="@style/divider"
