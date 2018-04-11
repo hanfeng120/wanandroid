@@ -26,7 +26,7 @@ class ArticleAdapter(context: Context) :
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = getItem(position)
         holder.llContent.setOnClickListener {
-            onItemClickListener.onItemClick(position, it)
+            onItemClickListener.onItemClick(position, getItem(position), it)
         }
         holder.tvTitle.text = article.title
         holder.tvAuthor.text = article.author

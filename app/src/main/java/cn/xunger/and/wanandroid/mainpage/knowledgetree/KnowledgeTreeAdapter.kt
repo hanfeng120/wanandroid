@@ -29,7 +29,7 @@ class KnowledgeTreeAdapter(context: Context) :
             it.name
         }
         holder.llContent.setOnClickListener {
-            onItemClickListener.onItemClick(position, it)
+            onItemClickListener.onItemClick(position, getItem(position), it)
         }
     }
 

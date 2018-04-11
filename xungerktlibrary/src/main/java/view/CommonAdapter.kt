@@ -13,7 +13,7 @@ abstract class CommonAdapter<T, VH : RecyclerView.ViewHolder>(context: Context) 
 
     protected val data: ArrayList<T> = arrayListOf()
     protected val inflater = LayoutInflater.from(context)!!
-    lateinit var onItemClickListener: OnItemClickListener
+    lateinit var onItemClickListener: OnItemClickListener<T>
 
     fun setData(data: ArrayList<T>) {
         this.data.clear()

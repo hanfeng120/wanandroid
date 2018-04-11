@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
 import cn.xunger.and.wanandroid.R
 import cn.xunger.and.wanandroid.`interface`.OnItemClickListener
 import cn.xunger.and.wanandroid.framework.CommonFragment
@@ -17,6 +16,7 @@ import cn.xunger.and.wanandroid.mainpage.home.ArticleAdapter
 import cn.xunger.and.wanandroid.module.HomeArticleResponse
 import cn.xunger.and.wanandroid.module.HomeBannerResponse
 import cn.xunger.and.wanandroid.module.Page
+import cn.xunger.and.wanandroid.web.WebViewActivity
 import cn.xunger.and.xungerktlibrary.net.DefaultObserver
 import cn.xunger.and.xungerktlibrary.utils.ImageLoader
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -119,9 +119,9 @@ class HomeFragment : CommonFragment() {
         recyclerView.isNestedScrollingEnabled = false
         recyclerView.setHasFixedSize(false)
 
-        articleAdapter.onItemClickListener = object : OnItemClickListener {
-            override fun onItemClick(position: Int, view: View) {
-                Toast.makeText(context, "$position 被点击了", Toast.LENGTH_SHORT).show()
+        articleAdapter.onItemClickListener = object : OnItemClickListener<HomeArticleResponse.HomeArticle> {
+            override fun onItemClick(position: Int, data: HomeArticleResponse.HomeArticle, view: View) {
+                WebViewActivity.startNewsDetailActivity(context!!, data.link)
             }
 
         }
