@@ -1,22 +1,14 @@
 package cn.xunger.and.wanandroid.web
 
-import android.content.Context
-import android.content.Intent
 import android.os.Build
 import android.webkit.*
 import cn.xunger.and.wanandroid.R
 import cn.xunger.and.wanandroid.framework.CommonActivity
+import cn.xunger.and.xungerktlibrary.module.SingleExtra
+import cn.xunger.and.xungerktlibrary.utils.getParameter
 import kotlinx.android.synthetic.main.activity_web_view.*
 
 class WebViewActivity : CommonActivity() {
-
-    companion object {
-        fun startNewsDetailActivity(context: Context, url: String) {
-            val intent = Intent(context, WebViewActivity::class.java)
-            intent.putExtra("Url", url)
-            context.startActivity(intent)
-        }
-    }
 
     override fun getLayoutResId(): Int {
         return R.layout.activity_web_view
@@ -47,8 +39,7 @@ class WebViewActivity : CommonActivity() {
     }
 
     override fun initData() {
-        val url = intent.getStringExtra("Url")
-        webview.loadUrl(url)
+        webview.loadUrl(getParameter<SingleExtra>().value)
     }
 
 }

@@ -35,7 +35,7 @@ inline fun <reified T : Activity> Fragment.startNewActivity() {
 
 inline fun <reified T : Parcelable> Activity.getParameter(): T {
     val name = getExtraName(this::class.java)
-    return intent.getParcelableExtra<T>(name)
+    return intent.getParcelableExtra(name)
 }
 
 fun getExtraName(target: Class<out Activity>): String {

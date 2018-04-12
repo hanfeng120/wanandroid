@@ -42,6 +42,8 @@
         android:label=""
         android:screenOrientation="portrait">
     </activity>
+    <activity android:name=".knowledge.KnowledgeTreeActivity">
+    </activity>
   </application>
 
 </manifest>

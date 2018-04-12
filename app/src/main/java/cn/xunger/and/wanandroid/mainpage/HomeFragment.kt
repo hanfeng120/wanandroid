@@ -17,8 +17,10 @@ import cn.xunger.and.wanandroid.module.HomeArticleResponse
 import cn.xunger.and.wanandroid.module.HomeBannerResponse
 import cn.xunger.and.wanandroid.module.Page
 import cn.xunger.and.wanandroid.web.WebViewActivity
+import cn.xunger.and.xungerktlibrary.module.SingleExtra
 import cn.xunger.and.xungerktlibrary.net.DefaultObserver
 import cn.xunger.and.xungerktlibrary.utils.ImageLoader
+import cn.xunger.and.xungerktlibrary.utils.startNewActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import view.banner.Banner
@@ -121,7 +123,7 @@ class HomeFragment : CommonFragment() {
 
         articleAdapter.onItemClickListener = object : OnItemClickListener<HomeArticleResponse.HomeArticle> {
             override fun onItemClick(position: Int, data: HomeArticleResponse.HomeArticle, view: View) {
-                WebViewActivity.startNewsDetailActivity(context!!, data.link)
+                hostActivity.startNewActivity<WebViewActivity>(SingleExtra(data.link))
             }
 
         }
