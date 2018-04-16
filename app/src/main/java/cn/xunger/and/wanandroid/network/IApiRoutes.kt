@@ -22,7 +22,7 @@ interface IApiRoutes {
     fun login(@Field("username") username: String, @Field("password") password: String): Observable<Response<LoginResponse>>
 
     @GET("/article/list/{page}/json")
-    fun loadHomePageList(@Path("page") page: String): Observable<Response<HomeArticleResponse>>
+    fun loadArticleList(@Path("page") page: String = "0", @Query("cid") cid: String? = null): Observable<Response<ArticleResponse>>
 
     @GET("/banner/json")
     fun loadHomeBannerData(): Observable<Response<HomeBannerResponse>>

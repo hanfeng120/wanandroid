@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import cn.xunger.and.wanandroid.R
-import cn.xunger.and.wanandroid.module.HomeArticleResponse
+import cn.xunger.and.wanandroid.module.ArticleResponse
 import view.CommonAdapter
 
 /**
@@ -16,7 +16,7 @@ import view.CommonAdapter
  *
  */
 class ArticleAdapter(context: Context) :
-        CommonAdapter<HomeArticleResponse.HomeArticle, ArticleAdapter.ArticleViewHolder>(context) {
+        CommonAdapter<ArticleResponse.Article, ArticleAdapter.ArticleViewHolder>(context) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         val rootView = inflater.inflate(R.layout.item_home_article, parent, false)

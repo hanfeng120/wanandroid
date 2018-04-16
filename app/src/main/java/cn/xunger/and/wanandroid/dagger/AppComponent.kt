@@ -2,6 +2,7 @@ package cn.xunger.and.wanandroid.dagger
 
 import cn.xunger.and.wanandroid.framework.CommonActivity
 import cn.xunger.and.wanandroid.framework.CommonFragment
+import cn.xunger.and.wanandroid.framework.CommonViewGroup
 import dagger.Component
 import javax.inject.Singleton
 
@@ -16,5 +17,7 @@ interface AppComponent {
     fun inject(commonActivity: CommonActivity)
 
     fun inject(commonFragment: CommonFragment)
+
+    fun inject(commonViewGroup: CommonViewGroup)
 
 }

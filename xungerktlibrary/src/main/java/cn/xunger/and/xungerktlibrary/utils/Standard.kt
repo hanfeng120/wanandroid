@@ -1,6 +1,7 @@
 package cn.xunger.and.xungerktlibrary.utils
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Parcelable
 import android.support.v4.app.Fragment
@@ -9,7 +10,7 @@ import android.support.v4.app.Fragment
  * Created on 2018/3/13.
  *
  */
-inline fun <reified T : Activity> Activity.startNewActivity(parameter: Parcelable) {
+inline fun <reified T : Activity> Context.startNewActivity(parameter: Parcelable) {
     val intent = Intent(this, T::class.java).apply {
         val name = getExtraName(T::class.java)
         putExtra(name, parameter)
@@ -17,15 +18,15 @@ inline fun <reified T : Activity> Activity.startNewActivity(parameter: Parcelabl
     startActivity(intent)
 }
 
-inline fun <reified T : Activity> Activity.startNewActivity() {
+inline fun <reified T : Activity> Context.startNewActivity() {
     val intent = Intent(this, T::class.java)
     startActivity(intent)
 }
 
-inline fun <reified T : Activity> Activity.startNewActivityAndFinish() {
+inline fun <reified T : Activity> Context.startNewActivityAndFinish() {
     val intent = Intent(this, T::class.java)
     startActivity(intent)
-    finish()
+    (this as? Activity)?.finish()
 }
 
 inline fun <reified T : Activity> Fragment.startNewActivity() {

@@ -31,7 +31,7 @@ abstract class CommonActivity : BaseActivity() {
         WanCookieJar.getInstance(application).clear()
     }
 
-    protected fun isLoggedIn(): Boolean {
+    protected open fun isLoggedIn(): Boolean {
         return userGlobal.userPassword.isNotEmpty()
     }
 

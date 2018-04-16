@@ -4,18 +4,18 @@ package cn.xunger.and.wanandroid.module
  * Created on 2018/4/4.
  *
  */
-class HomeArticleResponse : BaseResponse() {
+class ArticleResponse : BaseResponse() {
 
     lateinit var data: HomeArticleData
 
     class HomeArticleData {
 
         var curPage = 0
-        lateinit var datas: ArrayList<HomeArticle>
+        lateinit var datas: ArrayList<Article>
 
     }
 
-    class HomeArticle {
+    class Article {
         lateinit var apkLink: String
         lateinit var author: String
         lateinit var chapterId: String

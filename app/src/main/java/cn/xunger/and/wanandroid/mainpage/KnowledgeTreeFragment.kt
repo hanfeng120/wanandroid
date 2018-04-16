@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import cn.xunger.and.wanandroid.R
 import cn.xunger.and.wanandroid.`interface`.OnItemClickListener
 import cn.xunger.and.wanandroid.framework.CommonFragment
+import cn.xunger.and.wanandroid.knowledge.KnowledgeTreeActivity
 import cn.xunger.and.wanandroid.mainpage.knowledgetree.KnowledgeTreeAdapter
 import cn.xunger.and.wanandroid.module.KnowledgeTreeResponse
 import cn.xunger.and.xungerktlibrary.net.DefaultObserver
+import cn.xunger.and.xungerktlibrary.utils.startNewActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_knowledge.*
@@ -45,7 +47,7 @@ class KnowledgeTreeFragment : CommonFragment() {
         recycler_view.setHasFixedSize(false)
         adapter.onItemClickListener = object : OnItemClickListener<KnowledgeTreeResponse.KnowledgeTree> {
             override fun onItemClick(position: Int, data: KnowledgeTreeResponse.KnowledgeTree, view: View) {
-                //TODO 跳转到知识分类详情页面
+                hostActivity.startNewActivity<KnowledgeTreeActivity>(data)
             }
 
         }

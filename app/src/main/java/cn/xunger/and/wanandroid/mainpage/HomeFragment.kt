@@ -13,7 +13,7 @@ import cn.xunger.and.wanandroid.R
 import cn.xunger.and.wanandroid.`interface`.OnItemClickListener
 import cn.xunger.and.wanandroid.framework.CommonFragment
 import cn.xunger.and.wanandroid.mainpage.home.ArticleAdapter
-import cn.xunger.and.wanandroid.module.HomeArticleResponse
+import cn.xunger.and.wanandroid.module.ArticleResponse
 import cn.xunger.and.wanandroid.module.HomeBannerResponse
 import cn.xunger.and.wanandroid.module.Page
 import cn.xunger.and.wanandroid.web.WebViewActivity
@@ -38,7 +38,7 @@ class HomeFragment : CommonFragment() {
     private lateinit var banner: Banner<HomeBannerResponse.HomeBanner>
     private lateinit var recyclerView: RecyclerView
     private lateinit var articleAdapter: ArticleAdapter
-    private lateinit var articleResponse: HomeArticleResponse
+    private lateinit var articleResponse: ArticleResponse
     private lateinit var bannerResponse: HomeBannerResponse
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -63,17 +63,17 @@ class HomeFragment : CommonFragment() {
 
     private fun loadData() {
         apiHelper.getRetrofitApiHolder()
-                .loadHomePageList(page.page.toString())
+                .loadArticleList(page.page.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : DefaultObserver<HomeArticleResponse>() {
-                    override fun onSuccess(result: HomeArticleResponse) {
+                .subscribe(object : DefaultObserver<ArticleResponse>() {
+                    override fun onSuccess(result: ArticleResponse) {
                         swipeRefresh.isRefreshing = false
                         articleResponse = result
                         refreshArticleList()
                     }
 
-                    override fun onError(e: Throwable?, result: HomeArticleResponse?) {
+                    override fun onError(e: Throwable?, result: ArticleResponse?) {
                         swipeRefresh.isRefreshing = false
                         Log.d(TAG, "onError: " + e.toString())
                     }
@@ -121,8 +121,8 @@ class HomeFragment : CommonFragment() {
         recyclerView.isNestedScrollingEnabled = false
         recyclerView.setHasFixedSize(false)
 
-        articleAdapter.onItemClickListener = object : OnItemClickListener<HomeArticleResponse.HomeArticle> {
-            override fun onItemClick(position: Int, data: HomeArticleResponse.HomeArticle, view: View) {
+        articleAdapter.onItemClickListener = object : OnItemClickListener<ArticleResponse.Article> {
+            override fun onItemClick(position: Int, data: ArticleResponse.Article, view: View) {
                 hostActivity.startNewActivity<WebViewActivity>(SingleExtra(data.link))
             }
 
