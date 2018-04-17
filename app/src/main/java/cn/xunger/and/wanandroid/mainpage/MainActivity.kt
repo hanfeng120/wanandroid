@@ -1,15 +1,16 @@
 package cn.xunger.and.wanandroid.mainpage
 
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import cn.xunger.and.wanandroid.R
 import cn.xunger.and.wanandroid.framework.CommonActivity
+import cn.xunger.and.xungerktlibrary.view.NewFragmentPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : CommonActivity() {
 
-    private lateinit var pagerAdapter: FragmentPagerAdapter
+    private lateinit var pagerAdapter: PagerAdapter
     private val homeFragment = HomeFragment()
     private val knowledgeFragment = KnowledgeTreeFragment()
     private val userFragment = UserFragment()
@@ -43,7 +44,7 @@ class MainActivity : CommonActivity() {
     }
 
     private fun initFragmentPagerAdapter() {
-        pagerAdapter = object : FragmentPagerAdapter(supportFragmentManager) {
+        pagerAdapter = object : NewFragmentPagerAdapter(supportFragmentManager) {
             override fun getItem(position: Int): Fragment {
                 return fragments[position]
             }
