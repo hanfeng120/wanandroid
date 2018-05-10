@@ -3,7 +3,7 @@ package view
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import cn.xunger.and.wanandroid.`interface`.OnItemClickListener
+import cn.xunger.and.wanandroid.interfaces.OnItemClickListener
 
 /**
  * Created on 2018/4/11.

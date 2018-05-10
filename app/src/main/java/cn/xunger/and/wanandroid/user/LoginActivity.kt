@@ -69,7 +69,7 @@ class LoginActivity : CommonActivity() {
                 .login(et_user_name.text.toString(), et_password.text.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : DefaultObserver<LoginResponse>() {
+                .subscribe(object : DefaultObserver<LoginResponse>(this) {
                     override fun onSuccess(result: LoginResponse) {
                         userGlobal.userId = result.data.id
                         userGlobal.userName = result.data.username
@@ -79,8 +79,8 @@ class LoginActivity : CommonActivity() {
                     }
 
                     override fun onError(e: Throwable?, result: LoginResponse?) {
+                        super.onError(e, result)
                         et_password.text = null
-                        Toast.makeText(getContext(), result?.errorMsg, Toast.LENGTH_SHORT).show()
                     }
 
                 })

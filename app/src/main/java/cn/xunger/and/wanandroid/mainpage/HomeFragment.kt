@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import cn.xunger.and.wanandroid.R
-import cn.xunger.and.wanandroid.`interface`.OnItemClickListener
+import cn.xunger.and.wanandroid.interfaces.OnItemClickListener
 import cn.xunger.and.wanandroid.framework.CommonFragment
 import cn.xunger.and.wanandroid.mainpage.home.ArticleAdapter
 import cn.xunger.and.wanandroid.module.ArticleResponse
@@ -66,7 +66,7 @@ class HomeFragment : CommonFragment() {
                 .loadArticleList(page.page.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : DefaultObserver<ArticleResponse>() {
+                .subscribe(object : DefaultObserver<ArticleResponse>(hostActivity) {
                     override fun onSuccess(result: ArticleResponse) {
                         swipeRefresh.isRefreshing = false
                         articleResponse = result
@@ -83,7 +83,7 @@ class HomeFragment : CommonFragment() {
                 .loadHomeBannerData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : DefaultObserver<HomeBannerResponse>() {
+                .subscribe(object : DefaultObserver<HomeBannerResponse>(hostActivity) {
                     override fun onSuccess(result: HomeBannerResponse) {
                         bannerResponse = result
                         banner.setBannerData(result.data)

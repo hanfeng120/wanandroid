@@ -5,13 +5,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import cn.xunger.and.wanandroid.R
-import cn.xunger.and.wanandroid.`interface`.OnItemClickListener
+import cn.xunger.and.wanandroid.interfaces.OnItemClickListener
 import cn.xunger.and.wanandroid.framework.CommonViewGroup
 import cn.xunger.and.wanandroid.mainpage.home.ArticleAdapter
 import cn.xunger.and.wanandroid.module.ArticleResponse
 import cn.xunger.and.wanandroid.web.WebViewActivity
 import cn.xunger.and.xungerktlibrary.module.SingleExtra
 import cn.xunger.and.xungerktlibrary.net.DefaultObserver
+import cn.xunger.and.xungerktlibrary.net.NullCallBack
 import cn.xunger.and.xungerktlibrary.utils.startNewActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -51,12 +52,9 @@ class KnowledgeTreeViewGroup(context: Context, val cid: String) : CommonViewGrou
                 .loadArticleList(page, cid)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : DefaultObserver<ArticleResponse>() {
+                .subscribe(object : DefaultObserver<ArticleResponse>(NullCallBack()) {
                     override fun onSuccess(result: ArticleResponse) {
                         adapter.setData(result.data.datas)
-                    }
-
-                    override fun onError(e: Throwable?, result: ArticleResponse?) {
                     }
 
                 })

@@ -64,13 +64,10 @@ class RegisterActivity : CommonActivity() {
                 .register(et_user_name.text.toString(), et_password.text.toString())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(object : DefaultObserver<RegisterResponse>() {
+                .subscribe(object : DefaultObserver<RegisterResponse>(this) {
 
                     override fun onSuccess(result: RegisterResponse) {
                         Log.d("Register", "onSuccess: ")
-                    }
-
-                    override fun onError(e: Throwable?, result: RegisterResponse?) {
                     }
 
                 })

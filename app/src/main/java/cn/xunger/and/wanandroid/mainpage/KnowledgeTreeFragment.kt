@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cn.xunger.and.wanandroid.R
-import cn.xunger.and.wanandroid.`interface`.OnItemClickListener
+import cn.xunger.and.wanandroid.interfaces.OnItemClickListener
 import cn.xunger.and.wanandroid.framework.CommonFragment
 import cn.xunger.and.wanandroid.knowledge.KnowledgeTreeActivity
 import cn.xunger.and.wanandroid.mainpage.knowledgetree.KnowledgeTreeAdapter
@@ -58,7 +58,7 @@ class KnowledgeTreeFragment : CommonFragment() {
                 .loadKnowledgeTreeData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : DefaultObserver<KnowledgeTreeResponse>() {
+                .subscribe(object : DefaultObserver<KnowledgeTreeResponse>(hostActivity) {
                     override fun onSuccess(result: KnowledgeTreeResponse) {
                         swipe_refresh.isRefreshing = false
                         treeResponse = result

@@ -1,4 +1,4 @@
-package cn.xunger.and.wanandroid.`interface`
+package cn.xunger.and.wanandroid.interfaces
 
 import android.view.View
 
